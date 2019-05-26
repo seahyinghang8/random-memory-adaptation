@@ -39,12 +39,12 @@ def main(_):
         for task in range(args.num_tasks_to_run):
             task_permutation.append(np.random.permutation(784))
 
-        print("\nBaseline MLP training...")
-        start = time.time()
-        last_performance_baseline = training(baseline_model, mnist, task_permutation, False)
-        end = time.time()
-        time_needed_baseline = round(end - start)
-        print("Training time elapsed: ", time_needed_baseline, "s")
+        # print("\nBaseline MLP training...")
+        # start = time.time()
+        # last_performance_baseline = training(baseline_model, mnist, task_permutation, False)
+        # end = time.time()
+        # time_needed_baseline = round(end - start)
+        # print("Training time elapsed: ", time_needed_baseline, "s")
 
         print("\nMemory adapted (RMA) training...")
         start = time.time()
@@ -105,7 +105,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--num_tasks_to_run', type=int, default=20,
                         help='Number of task to run')
-    parser.add_argument('--memory_size', type=int, default=15000,
+    parser.add_argument('--memory_size', type=int, default=1500,
                         help='Memory size')
     parser.add_argument('--memory_each', type=int, default=1000,
                         help='Add to memory after these number of steps')
