@@ -1,0 +1,516 @@
+
+Parameters used: Namespace(batch_size=32, learning_rate=0.5, memory_each=1000, memory_size=1500, num_tasks_to_run=20) 
+
+Extracting /tmp/train-images-idx3-ubyte.gz
+Extracting /tmp/train-labels-idx1-ubyte.gz
+Extracting /tmp/t10k-images-idx3-ubyte.gz
+Extracting /tmp/t10k-labels-idx1-ubyte.gz
+
+Baseline MLP training...
+
+Training task:  1 / 20
+Testing, Task:  1  	Accuracy:  91.430002450943
+
+Training task:  2 / 20
+Testing, Task:  1  	Accuracy:  58.78000259399414
+Testing, Task:  2  	Accuracy:  91.93999767303467
+
+Training task:  3 / 20
+Testing, Task:  1  	Accuracy:  48.84999990463257
+Testing, Task:  2  	Accuracy:  70.14999985694885
+Testing, Task:  3  	Accuracy:  90.99000096321106
+
+Training task:  4 / 20
+Testing, Task:  1  	Accuracy:  27.390000224113464
+Testing, Task:  2  	Accuracy:  40.45000076293945
+Testing, Task:  3  	Accuracy:  66.75999760627747
+Testing, Task:  4  	Accuracy:  91.430002450943
+
+Training task:  5 / 20
+Testing, Task:  1  	Accuracy:  18.379999697208405
+Testing, Task:  2  	Accuracy:  24.490000307559967
+Testing, Task:  3  	Accuracy:  29.339998960494995
+Testing, Task:  4  	Accuracy:  60.62999963760376
+Testing, Task:  5  	Accuracy:  91.64999723434448
+
+Training task:  6 / 20
+Testing, Task:  1  	Accuracy:  18.240000307559967
+Testing, Task:  2  	Accuracy:  14.45000022649765
+Testing, Task:  3  	Accuracy:  13.580000400543213
+Testing, Task:  4  	Accuracy:  46.97999954223633
+Testing, Task:  5  	Accuracy:  42.82999932765961
+Testing, Task:  6  	Accuracy:  91.00000262260437
+
+Training task:  7 / 20
+Testing, Task:  1  	Accuracy:  14.470000565052032
+Testing, Task:  2  	Accuracy:  12.73999959230423
+Testing, Task:  3  	Accuracy:  16.500000655651093
+Testing, Task:  4  	Accuracy:  29.39000129699707
+Testing, Task:  5  	Accuracy:  25.960001349449158
+Testing, Task:  6  	Accuracy:  69.88000273704529
+Testing, Task:  7  	Accuracy:  91.21999740600586
+
+Training task:  8 / 20
+Testing, Task:  1  	Accuracy:  12.700000405311584
+Testing, Task:  2  	Accuracy:  11.630000174045563
+Testing, Task:  3  	Accuracy:  19.370000064373016
+Testing, Task:  4  	Accuracy:  16.619999706745148
+Testing, Task:  5  	Accuracy:  17.000000178813934
+Testing, Task:  6  	Accuracy:  38.510000705718994
+Testing, Task:  7  	Accuracy:  71.75999879837036
+Testing, Task:  8  	Accuracy:  91.56000018119812
+
+Training task:  9 / 20
+Testing, Task:  1  	Accuracy:  8.860000222921371
+Testing, Task:  2  	Accuracy:  10.660000145435333
+Testing, Task:  3  	Accuracy:  19.65000033378601
+Testing, Task:  4  	Accuracy:  12.549999356269836
+Testing, Task:  5  	Accuracy:  20.980000495910645
+Testing, Task:  6  	Accuracy:  23.479999601840973
+Testing, Task:  7  	Accuracy:  41.80999994277954
+Testing, Task:  8  	Accuracy:  65.74000120162964
+Testing, Task:  9  	Accuracy:  91.92000031471252
+
+Training task:  10 / 20
+Testing, Task:  1  	Accuracy:  10.670000314712524
+Testing, Task:  2  	Accuracy:  11.330000311136246
+Testing, Task:  3  	Accuracy:  14.730000495910645
+Testing, Task:  4  	Accuracy:  12.57999986410141
+Testing, Task:  5  	Accuracy:  21.68000042438507
+Testing, Task:  6  	Accuracy:  20.489999651908875
+Testing, Task:  7  	Accuracy:  29.44999933242798
+Testing, Task:  8  	Accuracy:  39.19000029563904
+Testing, Task:  9  	Accuracy:  74.69000220298767
+Testing, Task:  10  	Accuracy:  90.28000235557556
+
+Training task:  11 / 20
+Testing, Task:  1  	Accuracy:  9.25000011920929
+Testing, Task:  2  	Accuracy:  14.270000159740448
+Testing, Task:  3  	Accuracy:  13.259999454021454
+Testing, Task:  4  	Accuracy:  12.530000507831573
+Testing, Task:  5  	Accuracy:  12.150000035762787
+Testing, Task:  6  	Accuracy:  16.24000072479248
+Testing, Task:  7  	Accuracy:  21.250000596046448
+Testing, Task:  8  	Accuracy:  23.430000245571136
+Testing, Task:  9  	Accuracy:  51.579999923706055
+Testing, Task:  10  	Accuracy:  65.56000113487244
+Testing, Task:  11  	Accuracy:  91.38000011444092
+
+Training task:  12 / 20
+Testing, Task:  1  	Accuracy:  8.619999885559082
+Testing, Task:  2  	Accuracy:  15.50000011920929
+Testing, Task:  3  	Accuracy:  7.919999957084656
+Testing, Task:  4  	Accuracy:  12.42000013589859
+Testing, Task:  5  	Accuracy:  11.500000208616257
+Testing, Task:  6  	Accuracy:  13.240000605583191
+Testing, Task:  7  	Accuracy:  10.409999638795853
+Testing, Task:  8  	Accuracy:  9.939999878406525
+Testing, Task:  9  	Accuracy:  20.229999721050262
+Testing, Task:  10  	Accuracy:  34.47999954223633
+Testing, Task:  11  	Accuracy:  53.86999845504761
+Testing, Task:  12  	Accuracy:  91.46999716758728
+
+Training task:  13 / 20
+Testing, Task:  1  	Accuracy:  9.950000047683716
+Testing, Task:  2  	Accuracy:  14.499999582767487
+Testing, Task:  3  	Accuracy:  10.570000112056732
+Testing, Task:  4  	Accuracy:  9.120000153779984
+Testing, Task:  5  	Accuracy:  11.029999703168869
+Testing, Task:  6  	Accuracy:  12.839999794960022
+Testing, Task:  7  	Accuracy:  12.569999694824219
+Testing, Task:  8  	Accuracy:  11.270000040531158
+Testing, Task:  9  	Accuracy:  12.65999972820282
+Testing, Task:  10  	Accuracy:  30.059999227523804
+Testing, Task:  11  	Accuracy:  26.589998602867126
+Testing, Task:  12  	Accuracy:  69.0500020980835
+Testing, Task:  13  	Accuracy:  91.99000000953674
+
+Training task:  14 / 20
+Testing, Task:  1  	Accuracy:  9.570000320672989
+Testing, Task:  2  	Accuracy:  8.649999648332596
+Testing, Task:  3  	Accuracy:  10.490000247955322
+Testing, Task:  4  	Accuracy:  8.259999752044678
+Testing, Task:  5  	Accuracy:  10.599999874830246
+Testing, Task:  6  	Accuracy:  14.800000190734863
+Testing, Task:  7  	Accuracy:  12.120000272989273
+Testing, Task:  8  	Accuracy:  12.470000237226486
+Testing, Task:  9  	Accuracy:  10.209999978542328
+Testing, Task:  10  	Accuracy:  16.94999933242798
+Testing, Task:  11  	Accuracy:  25.990000367164612
+Testing, Task:  12  	Accuracy:  52.41000056266785
+Testing, Task:  13  	Accuracy:  71.52000069618225
+Testing, Task:  14  	Accuracy:  91.96000099182129
+
+Training task:  15 / 20
+Testing, Task:  1  	Accuracy:  9.009999781847
+Testing, Task:  2  	Accuracy:  8.179999887943268
+Testing, Task:  3  	Accuracy:  11.050000041723251
+Testing, Task:  4  	Accuracy:  8.349999785423279
+Testing, Task:  5  	Accuracy:  6.800000369548798
+Testing, Task:  6  	Accuracy:  11.150000244379044
+Testing, Task:  7  	Accuracy:  15.719999372959137
+Testing, Task:  8  	Accuracy:  11.949999630451202
+Testing, Task:  9  	Accuracy:  10.570000112056732
+Testing, Task:  10  	Accuracy:  17.759999632835388
+Testing, Task:  11  	Accuracy:  18.539999425411224
+Testing, Task:  12  	Accuracy:  31.619998812675476
+Testing, Task:  13  	Accuracy:  30.460000038146973
+Testing, Task:  14  	Accuracy:  73.91999959945679
+Testing, Task:  15  	Accuracy:  91.69999957084656
+
+Training task:  16 / 20
+Testing, Task:  1  	Accuracy:  8.190000057220459
+Testing, Task:  2  	Accuracy:  7.069999724626541
+Testing, Task:  3  	Accuracy:  9.49999988079071
+Testing, Task:  4  	Accuracy:  6.74000009894371
+Testing, Task:  5  	Accuracy:  6.390000134706497
+Testing, Task:  6  	Accuracy:  11.169999837875366
+Testing, Task:  7  	Accuracy:  13.379999995231628
+Testing, Task:  8  	Accuracy:  9.849999845027924
+Testing, Task:  9  	Accuracy:  5.3199999034404755
+Testing, Task:  10  	Accuracy:  12.430000305175781
+Testing, Task:  11  	Accuracy:  14.569999277591705
+Testing, Task:  12  	Accuracy:  19.130000472068787
+Testing, Task:  13  	Accuracy:  21.799999475479126
+Testing, Task:  14  	Accuracy:  43.32999885082245
+Testing, Task:  15  	Accuracy:  66.86000227928162
+Testing, Task:  16  	Accuracy:  89.67000246047974
+
+Training task:  17 / 20
+Testing, Task:  1  	Accuracy:  9.109999984502792
+Testing, Task:  2  	Accuracy:  11.089999973773956
+Testing, Task:  3  	Accuracy:  8.860000222921371
+Testing, Task:  4  	Accuracy:  8.169999718666077
+Testing, Task:  5  	Accuracy:  6.219999864697456
+Testing, Task:  6  	Accuracy:  10.199999809265137
+Testing, Task:  7  	Accuracy:  13.199999928474426
+Testing, Task:  8  	Accuracy:  10.499999672174454
+Testing, Task:  9  	Accuracy:  9.629999846220016
+Testing, Task:  10  	Accuracy:  8.540000021457672
+Testing, Task:  11  	Accuracy:  12.569999694824219
+Testing, Task:  12  	Accuracy:  16.689999401569366
+Testing, Task:  13  	Accuracy:  23.11999946832657
+Testing, Task:  14  	Accuracy:  28.259998559951782
+Testing, Task:  15  	Accuracy:  47.35000133514404
+Testing, Task:  16  	Accuracy:  68.12000274658203
+Testing, Task:  17  	Accuracy:  91.54999852180481
+
+Training task:  18 / 20
+Testing, Task:  1  	Accuracy:  11.779999732971191
+Testing, Task:  2  	Accuracy:  9.319999814033508
+Testing, Task:  3  	Accuracy:  8.020000159740448
+Testing, Task:  4  	Accuracy:  8.669999986886978
+Testing, Task:  5  	Accuracy:  7.159999758005142
+Testing, Task:  6  	Accuracy:  8.449999988079071
+Testing, Task:  7  	Accuracy:  12.160000205039978
+Testing, Task:  8  	Accuracy:  10.949999839067459
+Testing, Task:  9  	Accuracy:  8.85000005364418
+Testing, Task:  10  	Accuracy:  11.699999868869781
+Testing, Task:  11  	Accuracy:  11.490000039339066
+Testing, Task:  12  	Accuracy:  8.649999648332596
+Testing, Task:  13  	Accuracy:  18.240000307559967
+Testing, Task:  14  	Accuracy:  21.250000596046448
+Testing, Task:  15  	Accuracy:  30.050000548362732
+Testing, Task:  16  	Accuracy:  42.9500013589859
+Testing, Task:  17  	Accuracy:  76.62000060081482
+Testing, Task:  18  	Accuracy:  91.71000123023987
+
+Training task:  19 / 20
+Testing, Task:  1  	Accuracy:  11.060000211000443
+Testing, Task:  2  	Accuracy:  10.540000349283218
+Testing, Task:  3  	Accuracy:  8.20000022649765
+Testing, Task:  4  	Accuracy:  7.919999957084656
+Testing, Task:  5  	Accuracy:  8.709999918937683
+Testing, Task:  6  	Accuracy:  11.51999980211258
+Testing, Task:  7  	Accuracy:  13.339999318122864
+Testing, Task:  8  	Accuracy:  10.010000318288803
+Testing, Task:  9  	Accuracy:  7.739999890327454
+Testing, Task:  10  	Accuracy:  9.139999747276306
+Testing, Task:  11  	Accuracy:  9.380000084638596
+Testing, Task:  12  	Accuracy:  7.540000230073929
+Testing, Task:  13  	Accuracy:  16.65000021457672
+Testing, Task:  14  	Accuracy:  20.600000023841858
+Testing, Task:  15  	Accuracy:  22.699999809265137
+Testing, Task:  16  	Accuracy:  18.59000027179718
+Testing, Task:  17  	Accuracy:  48.510000109672546
+Testing, Task:  18  	Accuracy:  61.68000102043152
+Testing, Task:  19  	Accuracy:  91.50999784469604
+
+Training task:  20 / 20
+Testing, Task:  1  	Accuracy:  8.739999681711197
+Testing, Task:  2  	Accuracy:  11.51999980211258
+Testing, Task:  3  	Accuracy:  9.830000251531601
+Testing, Task:  4  	Accuracy:  8.990000188350677
+Testing, Task:  5  	Accuracy:  9.650000184774399
+Testing, Task:  6  	Accuracy:  10.859999805688858
+Testing, Task:  7  	Accuracy:  9.160000085830688
+Testing, Task:  8  	Accuracy:  11.819999665021896
+Testing, Task:  9  	Accuracy:  7.890000194311142
+Testing, Task:  10  	Accuracy:  11.860000342130661
+Testing, Task:  11  	Accuracy:  13.249999284744263
+Testing, Task:  12  	Accuracy:  8.869999647140503
+Testing, Task:  13  	Accuracy:  15.469999611377716
+Testing, Task:  14  	Accuracy:  18.559999763965607
+Testing, Task:  15  	Accuracy:  11.089999973773956
+Testing, Task:  16  	Accuracy:  14.030000567436218
+Testing, Task:  17  	Accuracy:  35.830000042915344
+Testing, Task:  18  	Accuracy:  27.2599995136261
+Testing, Task:  19  	Accuracy:  68.12000274658203
+Testing, Task:  20  	Accuracy:  91.50999784469604
+Training time elapsed:  272 s
+
+Memory adapted (RMA) training...
+
+Training task:  1 / 20
+Testing, Task:  1  	Accuracy:  91.9700026512146
+
+Training task:  2 / 20
+Testing, Task:  1  	Accuracy:  86.9599997997284
+Testing, Task:  2  	Accuracy:  91.72999858856201
+
+Training task:  3 / 20
+Testing, Task:  1  	Accuracy:  84.25999879837036
+Testing, Task:  2  	Accuracy:  86.05999946594238
+Testing, Task:  3  	Accuracy:  91.43999814987183
+
+Training task:  4 / 20
+Testing, Task:  1  	Accuracy:  81.76000118255615
+Testing, Task:  2  	Accuracy:  82.88000226020813
+Testing, Task:  3  	Accuracy:  85.75999736785889
+Testing, Task:  4  	Accuracy:  91.79999828338623
+
+Training task:  5 / 20
+Testing, Task:  1  	Accuracy:  80.44000267982483
+Testing, Task:  2  	Accuracy:  80.32000064849854
+Testing, Task:  3  	Accuracy:  81.33000135421753
+Testing, Task:  4  	Accuracy:  85.180002450943
+Testing, Task:  5  	Accuracy:  91.3100004196167
+
+Training task:  6 / 20
+Testing, Task:  1  	Accuracy:  66.80999994277954
+Testing, Task:  2  	Accuracy:  79.37999963760376
+Testing, Task:  3  	Accuracy:  80.2299976348877
+Testing, Task:  4  	Accuracy:  82.19000101089478
+Testing, Task:  5  	Accuracy:  84.99000072479248
+Testing, Task:  6  	Accuracy:  91.28999710083008
+
+Training task:  7 / 20
+Testing, Task:  1  	Accuracy:  53.65999937057495
+Testing, Task:  2  	Accuracy:  67.29000210762024
+Testing, Task:  3  	Accuracy:  79.53000068664551
+Testing, Task:  4  	Accuracy:  80.87000250816345
+Testing, Task:  5  	Accuracy:  82.88999795913696
+Testing, Task:  6  	Accuracy:  85.11000275611877
+Testing, Task:  7  	Accuracy:  91.07000231742859
+
+Training task:  8 / 20
+Testing, Task:  1  	Accuracy:  36.07000112533569
+Testing, Task:  2  	Accuracy:  49.61000084877014
+Testing, Task:  3  	Accuracy:  71.50999903678894
+Testing, Task:  4  	Accuracy:  79.39000129699707
+Testing, Task:  5  	Accuracy:  80.58000206947327
+Testing, Task:  6  	Accuracy:  81.08999729156494
+Testing, Task:  7  	Accuracy:  86.08999848365784
+Testing, Task:  8  	Accuracy:  91.17000102996826
+
+Training task:  9 / 20
+Testing, Task:  1  	Accuracy:  26.069998741149902
+Testing, Task:  2  	Accuracy:  31.240001320838928
+Testing, Task:  3  	Accuracy:  61.98999881744385
+Testing, Task:  4  	Accuracy:  73.68999719619751
+Testing, Task:  5  	Accuracy:  79.08999919891357
+Testing, Task:  6  	Accuracy:  80.03000020980835
+Testing, Task:  7  	Accuracy:  81.41000270843506
+Testing, Task:  8  	Accuracy:  84.76999998092651
+Testing, Task:  9  	Accuracy:  91.28999710083008
+
+Training task:  10 / 20
+Testing, Task:  1  	Accuracy:  25.859999656677246
+Testing, Task:  2  	Accuracy:  20.800000429153442
+Testing, Task:  3  	Accuracy:  41.29999876022339
+Testing, Task:  4  	Accuracy:  53.439998626708984
+Testing, Task:  5  	Accuracy:  71.3699996471405
+Testing, Task:  6  	Accuracy:  78.56000065803528
+Testing, Task:  7  	Accuracy:  79.65999841690063
+Testing, Task:  8  	Accuracy:  82.01000094413757
+Testing, Task:  9  	Accuracy:  84.78999733924866
+Testing, Task:  10  	Accuracy:  90.99000096321106
+
+Training task:  11 / 20
+Testing, Task:  1  	Accuracy:  25.299999117851257
+Testing, Task:  2  	Accuracy:  23.37000072002411
+Testing, Task:  3  	Accuracy:  34.25999879837036
+Testing, Task:  4  	Accuracy:  34.56999957561493
+Testing, Task:  5  	Accuracy:  49.93000030517578
+Testing, Task:  6  	Accuracy:  66.72000288963318
+Testing, Task:  7  	Accuracy:  78.03999781608582
+Testing, Task:  8  	Accuracy:  80.90999722480774
+Testing, Task:  9  	Accuracy:  81.80999755859375
+Testing, Task:  10  	Accuracy:  86.2600028514862
+Testing, Task:  11  	Accuracy:  91.74000024795532
+
+Training task:  12 / 20
+Testing, Task:  1  	Accuracy:  13.989999890327454
+Testing, Task:  2  	Accuracy:  22.210000455379486
+Testing, Task:  3  	Accuracy:  28.549998998641968
+Testing, Task:  4  	Accuracy:  27.20000147819519
+Testing, Task:  5  	Accuracy:  34.060001373291016
+Testing, Task:  6  	Accuracy:  46.309998631477356
+Testing, Task:  7  	Accuracy:  67.18000173568726
+Testing, Task:  8  	Accuracy:  78.76999974250793
+Testing, Task:  9  	Accuracy:  79.19999957084656
+Testing, Task:  10  	Accuracy:  81.55999779701233
+Testing, Task:  11  	Accuracy:  87.29000091552734
+Testing, Task:  12  	Accuracy:  91.03000164031982
+
+Training task:  13 / 20
+Testing, Task:  1  	Accuracy:  15.049999952316284
+Testing, Task:  2  	Accuracy:  21.379999816417694
+Testing, Task:  3  	Accuracy:  18.60000044107437
+Testing, Task:  4  	Accuracy:  20.190000534057617
+Testing, Task:  5  	Accuracy:  30.68000078201294
+Testing, Task:  6  	Accuracy:  35.519999265670776
+Testing, Task:  7  	Accuracy:  49.66999888420105
+Testing, Task:  8  	Accuracy:  68.84999871253967
+Testing, Task:  9  	Accuracy:  77.1399974822998
+Testing, Task:  10  	Accuracy:  79.8200011253357
+Testing, Task:  11  	Accuracy:  83.85000228881836
+Testing, Task:  12  	Accuracy:  86.34999990463257
+Testing, Task:  13  	Accuracy:  91.07000231742859
+
+Training task:  14 / 20
+Testing, Task:  1  	Accuracy:  11.060000211000443
+Testing, Task:  2  	Accuracy:  13.109999895095825
+Testing, Task:  3  	Accuracy:  13.060000538825989
+Testing, Task:  4  	Accuracy:  14.20000046491623
+Testing, Task:  5  	Accuracy:  22.40000069141388
+Testing, Task:  6  	Accuracy:  31.90999925136566
+Testing, Task:  7  	Accuracy:  28.24999988079071
+Testing, Task:  8  	Accuracy:  49.54000115394592
+Testing, Task:  9  	Accuracy:  70.98000049591064
+Testing, Task:  10  	Accuracy:  77.89000272750854
+Testing, Task:  11  	Accuracy:  82.89999961853027
+Testing, Task:  12  	Accuracy:  84.52000021934509
+Testing, Task:  13  	Accuracy:  85.17000079154968
+Testing, Task:  14  	Accuracy:  91.36000275611877
+
+Training task:  15 / 20
+Testing, Task:  1  	Accuracy:  9.57999974489212
+Testing, Task:  2  	Accuracy:  14.000000059604645
+Testing, Task:  3  	Accuracy:  13.109999895095825
+Testing, Task:  4  	Accuracy:  14.900000393390656
+Testing, Task:  5  	Accuracy:  15.559999644756317
+Testing, Task:  6  	Accuracy:  15.73999971151352
+Testing, Task:  7  	Accuracy:  23.579999804496765
+Testing, Task:  8  	Accuracy:  42.60999858379364
+Testing, Task:  9  	Accuracy:  46.59999907016754
+Testing, Task:  10  	Accuracy:  70.09999752044678
+Testing, Task:  11  	Accuracy:  81.09999895095825
+Testing, Task:  12  	Accuracy:  82.60999917984009
+Testing, Task:  13  	Accuracy:  82.24999904632568
+Testing, Task:  14  	Accuracy:  85.10000109672546
+Testing, Task:  15  	Accuracy:  90.70000052452087
+
+Training task:  16 / 20
+Testing, Task:  1  	Accuracy:  8.209999650716782
+Testing, Task:  2  	Accuracy:  14.010000228881836
+Testing, Task:  3  	Accuracy:  12.189999967813492
+Testing, Task:  4  	Accuracy:  15.320000052452087
+Testing, Task:  5  	Accuracy:  9.830000251531601
+Testing, Task:  6  	Accuracy:  13.510000705718994
+Testing, Task:  7  	Accuracy:  13.750000298023224
+Testing, Task:  8  	Accuracy:  27.91000008583069
+Testing, Task:  9  	Accuracy:  23.77000004053116
+Testing, Task:  10  	Accuracy:  49.18999969959259
+Testing, Task:  11  	Accuracy:  71.78000211715698
+Testing, Task:  12  	Accuracy:  81.47000074386597
+Testing, Task:  13  	Accuracy:  79.50000166893005
+Testing, Task:  14  	Accuracy:  82.94000029563904
+Testing, Task:  15  	Accuracy:  84.72999930381775
+Testing, Task:  16  	Accuracy:  91.54000282287598
+
+Training task:  17 / 20
+Testing, Task:  1  	Accuracy:  9.08999964594841
+Testing, Task:  2  	Accuracy:  13.660000264644623
+Testing, Task:  3  	Accuracy:  9.290000051259995
+Testing, Task:  4  	Accuracy:  17.550000548362732
+Testing, Task:  5  	Accuracy:  11.299999803304672
+Testing, Task:  6  	Accuracy:  12.09999993443489
+Testing, Task:  7  	Accuracy:  13.459999859333038
+Testing, Task:  8  	Accuracy:  19.210000336170197
+Testing, Task:  9  	Accuracy:  21.279999613761902
+Testing, Task:  10  	Accuracy:  31.56999945640564
+Testing, Task:  11  	Accuracy:  48.28000068664551
+Testing, Task:  12  	Accuracy:  72.06000089645386
+Testing, Task:  13  	Accuracy:  79.30999994277954
+Testing, Task:  14  	Accuracy:  81.38999938964844
+Testing, Task:  15  	Accuracy:  81.9100022315979
+Testing, Task:  16  	Accuracy:  85.11999845504761
+Testing, Task:  17  	Accuracy:  91.28999710083008
+
+Training task:  18 / 20
+Testing, Task:  1  	Accuracy:  10.88000014424324
+Testing, Task:  2  	Accuracy:  15.81999957561493
+Testing, Task:  3  	Accuracy:  7.329999655485153
+Testing, Task:  4  	Accuracy:  14.900000393390656
+Testing, Task:  5  	Accuracy:  8.83999988436699
+Testing, Task:  6  	Accuracy:  10.23000031709671
+Testing, Task:  7  	Accuracy:  10.88000014424324
+Testing, Task:  8  	Accuracy:  13.210000097751617
+Testing, Task:  9  	Accuracy:  12.380000203847885
+Testing, Task:  10  	Accuracy:  28.9900004863739
+Testing, Task:  11  	Accuracy:  30.259999632835388
+Testing, Task:  12  	Accuracy:  49.57000017166138
+Testing, Task:  13  	Accuracy:  70.34000158309937
+Testing, Task:  14  	Accuracy:  78.14000248908997
+Testing, Task:  15  	Accuracy:  79.89000082015991
+Testing, Task:  16  	Accuracy:  80.83000183105469
+Testing, Task:  17  	Accuracy:  86.16999983787537
+Testing, Task:  18  	Accuracy:  90.60999751091003
+
+Training task:  19 / 20
+Testing, Task:  1  	Accuracy:  10.300000011920929
+Testing, Task:  2  	Accuracy:  14.920000731945038
+Testing, Task:  3  	Accuracy:  7.829999923706055
+Testing, Task:  4  	Accuracy:  17.389999330043793
+Testing, Task:  5  	Accuracy:  7.8599996864795685
+Testing, Task:  6  	Accuracy:  11.28000020980835
+Testing, Task:  7  	Accuracy:  13.030000030994415
+Testing, Task:  8  	Accuracy:  11.43999993801117
+Testing, Task:  9  	Accuracy:  14.679999649524689
+Testing, Task:  10  	Accuracy:  21.01999968290329
+Testing, Task:  11  	Accuracy:  17.419999837875366
+Testing, Task:  12  	Accuracy:  35.920000076293945
+Testing, Task:  13  	Accuracy:  51.28999948501587
+Testing, Task:  14  	Accuracy:  70.99000215530396
+Testing, Task:  15  	Accuracy:  78.03999781608582
+Testing, Task:  16  	Accuracy:  78.78999710083008
+Testing, Task:  17  	Accuracy:  82.59999752044678
+Testing, Task:  18  	Accuracy:  85.68999767303467
+Testing, Task:  19  	Accuracy:  91.21999740600586
+
+Training task:  20 / 20
+Testing, Task:  1  	Accuracy:  11.079999804496765
+Testing, Task:  2  	Accuracy:  12.999999523162842
+Testing, Task:  3  	Accuracy:  8.389999717473984
+Testing, Task:  4  	Accuracy:  14.630000293254852
+Testing, Task:  5  	Accuracy:  6.679999828338623
+Testing, Task:  6  	Accuracy:  10.39000004529953
+Testing, Task:  7  	Accuracy:  14.470000565052032
+Testing, Task:  8  	Accuracy:  16.169999539852142
+Testing, Task:  9  	Accuracy:  14.60999995470047
+Testing, Task:  10  	Accuracy:  19.380000233650208
+Testing, Task:  11  	Accuracy:  18.709999322891235
+Testing, Task:  12  	Accuracy:  29.30999994277954
+Testing, Task:  13  	Accuracy:  35.46000123023987
+Testing, Task:  14  	Accuracy:  53.56000065803528
+Testing, Task:  15  	Accuracy:  67.30999946594238
+Testing, Task:  16  	Accuracy:  77.0799994468689
+Testing, Task:  17  	Accuracy:  80.55999875068665
+Testing, Task:  18  	Accuracy:  81.48000240325928
+Testing, Task:  19  	Accuracy:  84.7100019454956
+Testing, Task:  20  	Accuracy:  91.26999974250793
+Training time elapsed:  353 s
+
+Difference in time between using or not memory:  81 s
+Test accuracy mean gained due to the memory:  17.2
