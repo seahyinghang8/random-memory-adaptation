@@ -8,7 +8,7 @@ class RandomMemory:
         self.states = np.zeros((capacity, input_result))
         self.values = np.zeros((capacity, output_dimension))
         # Pointer
-        self.curr_capacity = 0
+        self.pointer = 0
 
     def nn(self, n_samples):
         # We seek and return n random memory locations
@@ -20,13 +20,12 @@ class RandomMemory:
 
     def add(self, keys, values):
         # We add {k, v} pairs to the memory
-        if self.curr_capacity + len(keys) >= self.capacity:
-            self.curr_capacity = 0
-
         for i, _ in enumerate(keys):
-            self.states[self.curr_capacity] = keys[i]
-            self.values[self.curr_capacity] = values[i]
-            self.curr_capacity += 1
+            if self.pointer >= self.capacity:
+                self.pointer = 0
+            self.states[self.pointer] = keys[i]
+            self.values[self.pointer] = values[i]
+            self.pointer += 1
 
 
 class RMA(object):
