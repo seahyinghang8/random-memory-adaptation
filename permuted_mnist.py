@@ -105,9 +105,9 @@ if __name__ == '__main__':
 
     parser.add_argument('--num_tasks_to_run', type=int, default=20,
                         help='Number of task to run')
-    parser.add_argument('--memory_size', type=int, default=1500,
+    parser.add_argument('--memory_size', type=int, default=3000,
                         help='Memory size')
-    parser.add_argument('--memory_each', type=int, default=1000,
+    parser.add_argument('--memory_each', type=int, default=1,
                         help='Add to memory after these number of steps')
     parser.add_argument('--batch_size', type=int, default=32,
                         help='Size of batch for updates')

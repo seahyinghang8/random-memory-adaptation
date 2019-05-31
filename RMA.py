@@ -18,38 +18,20 @@ class RandomMemory:
 
         return embs, values
 
-    # def add_old(self, keys, values):
-    #     # We add {k, v} pairs to the memory
-    #     for i, _ in enumerate(keys):
-    #         if self.pointer >= self.capacity:
-    #             self.pointer = 0
-    #         self.states[self.pointer] = keys[i]
-    #         self.values[self.pointer] = values[i]
-    #         self.pointer += 1
-
-    # def add(self, keys, values):
-    #     for i, _ in enumerate(keys):
-    #         if self.pointer >= self.capacity:
-    #             unnormalized = np.matmul(self.states, keys[i].T)
-    #             cos_sim = unnormalized / (np.linalg.norm(self.states, axis=1) * np.linalg.norm(keys[i]))
-    #             insert_idx = np.argmin(cos_sim)
-    #             self.states[insert_idx] = keys[i]
-    #             self.values[insert_idx] = values[i]
-    #         else:
-    #             self.states[self.pointer] = keys[i]
-    #             self.values[self.pointer] = values[i]
-    #             self.pointer += 1
-
     def add(self, keys, values):
+        # We add {k, v} pairs to the memory
         for i, _ in enumerate(keys):
             if self.pointer >= self.capacity:
-                new_idx = np.random.randint(0, self.pointer)
-                self.states[new_idx] = keys[i]
-                self.states[new_idx] = values[i]
-            else:
-                self.states[self.pointer] = keys[i]
-                self.values[self.pointer] = values[i]
-                self.pointer += 1
+                self.pointer = 0
+            self.states[self.pointer] = keys[i]
+            self.values[self.pointer] = values[i]
+            self.pointer += 1
+
+    def nearest_k(self, key, k=5):
+        unnormalized = np.matmul(self.states, key.T)
+        cos_sim = unnormalized / (np.linalg.norm(self.states, axis=1) * np.linalg.norm(key))
+        k_idx = np.argsort(cos_sim)[:k]
+        return (self.states[k_idx], self.values[k_idx])
 
 
 class RMA(object):
@@ -60,25 +42,30 @@ class RMA(object):
         # Placeholders
         self.x = tf.placeholder(tf.float32, shape=[None, 784])
         self.y_ = tf.placeholder(tf.float32, shape=[None, 10])
-        self.memory_sample_batch = tf.placeholder(tf.int16, shape=())
+
+
+        self.w = tf.Variable(tf.zeros([784, 10]))
+        self.b = tf.Variable(tf.zeros([10]))
 
         # Memory Sampling
-        embs_and_values = tf.py_func(self.get_memory_sample, [self.memory_sample_batch], [tf.float64, tf.float64])
-        self.memory_batch_x = tf.to_float(embs_and_values[0])
-        self.memory_batch_y = tf.to_float(embs_and_values[1])
-        self.xa = tf.concat(values=[self.x, self.memory_batch_x], axis=0)
-        self.ya_ = tf.concat(values=[self.y_, self.memory_batch_y], axis=0)
+        self.memory_x_ = tf.placeholder(tf.float32, shape=[None, 784])
+        self.memory_y_ = tf.placeholder(tf.float32, shape=[None, 10])
 
         # Network
-        self.y = self.network(self.xa)
+        self.y = self.network(self.x, self.w, self.b)
 
         # Memory M
         self.M = RandomMemory(args.memory_size, self.x.get_shape()[-1], self.y.get_shape()[-1])
 
         # Loss function
-        self.cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=self.ya_, logits=self.y))
+        self.cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=self.y_, logits=self.y))
         self.optim = tf.train.GradientDescentOptimizer(self.learning_rate).minimize(self.cross_entropy)
-        self.correct_prediction = tf.equal(tf.argmax(self.y, 1), tf.argmax(self.y_, 1))
+        w_update, b_update = tf.gradients(
+            tf.nn.softmax_cross_entropy_with_logits(labels=self.memory_y_, logits=self.network(self.memory_x_, self.w, self.b)),
+            [self.w, self.b]
+        )
+        test_preds = self.network(self.x, self.w - 0.01*w_update, self.b - 0.01*b_update)
+        self.correct_prediction = tf.equal(tf.argmax(test_preds, 1), tf.argmax(self.y_, 1))
         self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
 
         # Initialize the variables
@@ -94,17 +81,23 @@ class RMA(object):
         self.M.add(xs, ys)
 
     def train(self, xs, ys, memory_sample_batch):
-        self.session.run(self.optim, feed_dict={self.x: xs, self.y_: ys, self.memory_sample_batch: memory_sample_batch})
+        self.session.run(self.optim, feed_dict={self.x: xs, self.y_: ys})
 
     def test(self, xs_test, ys_test):
-        acc = self.session.run(self.accuracy,
-                               feed_dict={self.x: xs_test, self.y_: ys_test, self.memory_sample_batch: 0})
-        return acc
+        accs = []
+        for i, _ in enumerate(xs_test):
+            memx, memy = self.M.nearest_k(xs_test[i], 10)
+            acc = self.session.run(
+                self.accuracy,
+                feed_dict={
+                    self.x: np.expand_dims(xs_test[i], axis=0), self.y_: np.expand_dims(ys_test[i], axis=0),
+                    self.memory_x_: memx, self.memory_y_: memy,
+                })
+            accs.append(acc)
+        return sum(accs)/len(accs)
 
     @staticmethod
-    def network(x):
+    def network(x, w, b):
         # Basic 2 layers MLP
-        w = tf.Variable(tf.zeros([784, 10]))
-        b = tf.Variable(tf.zeros([10]))
         y = tf.matmul(x, w) + b
         return y
