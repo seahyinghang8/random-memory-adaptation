@@ -28,6 +28,9 @@ class RandomMemory:
             self.pointer += 1
 
     def nearest_k(self, key, k=5):
+        """
+        get k nearest memory locations
+        """
         unnormalized = np.matmul(self.states, key.T)
         cos_sim = unnormalized / (np.linalg.norm(self.states, axis=1) * np.linalg.norm(key))
         k_idx = np.argsort(cos_sim)[:k]
@@ -84,17 +87,25 @@ class RMA(object):
         self.session.run(self.optim, feed_dict={self.x: xs, self.y_: ys})
 
     def test(self, xs_test, ys_test):
+        # assume all xs are from the same task
         accs = []
-        for i, _ in enumerate(xs_test):
-            memx, memy = self.M.nearest_k(xs_test[i], 10)
-            acc = self.session.run(
+        ids = np.random.choice(xs_test.shape[0], size=10, replace=False)
+        memx = []
+        memy = []
+        for idx in ids:
+            x, y = self.M.nearest_k(xs_test[idx], 10)
+            memx.append(x)
+            memy.append(y)
+        memx = np.concatenate(memx)
+        memy = np.concatenate(memy)
+        acc = self.session.run(
                 self.accuracy,
                 feed_dict={
-                    self.x: np.expand_dims(xs_test[i], axis=0), self.y_: np.expand_dims(ys_test[i], axis=0),
+                    self.x: xs_test,
+                    self.y_: ys_test,
                     self.memory_x_: memx, self.memory_y_: memy,
                 })
-            accs.append(acc)
-        return sum(accs)/len(accs)
+        return acc
 
     @staticmethod
     def network(x, w, b):
