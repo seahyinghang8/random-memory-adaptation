@@ -7,15 +7,22 @@ class RandomMemory:
         self.capacity = capacity
         self.states = np.zeros((capacity, input_result))
         self.values = np.zeros((capacity, output_dimension))
+        self.sample_weights = np.ones((capacity))
         # Pointer
         self.pointer = 0
 
     def nn(self, n_samples):
         # We seek and return n random memory locations
-        idx = np.random.choice(np.arange(len(self.states)), n_samples, replace=False)
+        idx = np.random.choice(
+            np.arange(len(self.states)), n_samples,
+            p=self.sample_weights / np.sum(self.sample_weights),
+            replace=False)
         embs = self.states[idx]
         values = self.values[idx]
-
+        self.sample_weights[idx] = 1
+        mask = np.ones(len(self.states), np.bool)
+        mask[idx] = 0
+        self.sample_weights[mask] += 1        
         return embs, values
 
     # def add_old(self, keys, values):
@@ -52,6 +59,7 @@ class RandomMemory:
                     else:
                         self.states[insert_idx] = keys[i]
                         self.values[insert_idx] = values[i]
+                        self.sample_weights[insert_idx] = 1
                         break
             else:
                 self.states[self.pointer] = keys[i]
