@@ -94,7 +94,8 @@ def training(model, mnist, task_permutation, use_memory=True):
             if args.num_tasks_to_run == task + 1:
                 last_performance.append(acc)
 
-            print("Testing, Task: ", test_task + 1, " \tAccuracy: ", acc)
+            # print("Testing, Task: ", test_task + 1, " \tAccuracy: ", acc)
+            print(acc)
 
     return last_performance
 
