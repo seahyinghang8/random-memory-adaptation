@@ -27,14 +27,32 @@ class RandomMemory:
     #         self.values[self.pointer] = values[i]
     #         self.pointer += 1
 
+    # def add(self, keys, values):
+    #     for i, _ in enumerate(keys):
+    #         if self.pointer >= self.capacity:
+    #             unnormalized = np.matmul(self.states, keys[i].T)
+    #             cos_sim = unnormalized / (np.linalg.norm(self.states, axis=1) * np.linalg.norm(keys[i]))
+    #             insert_idx = np.argmin(cos_sim)
+    #             self.states[insert_idx] = keys[i]
+    #             self.values[insert_idx] = values[i]
+    #         else:
+    #             self.states[self.pointer] = keys[i]
+    #             self.values[self.pointer] = values[i]
+    #             self.pointer += 1
+
     def add(self, keys, values):
         for i, _ in enumerate(keys):
             if self.pointer >= self.capacity:
                 unnormalized = np.matmul(self.states, keys[i].T)
                 cos_sim = unnormalized / (np.linalg.norm(self.states, axis=1) * np.linalg.norm(keys[i]))
-                insert_idx = np.argmin(cos_sim)
-                self.states[insert_idx] = keys[i]
-                self.values[insert_idx] = values[i]
+                sorted_ids = np.argsort(cos_sim)
+                for insert_idx in sorted_ids:
+                    if (self.values[insert_idx] != values[i]).any():
+                        continue
+                    else:
+                        self.states[insert_idx] = keys[i]
+                        self.values[insert_idx] = values[i]
+                        break
             else:
                 self.states[self.pointer] = keys[i]
                 self.values[self.pointer] = values[i]
