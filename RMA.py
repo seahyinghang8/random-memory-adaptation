@@ -2,12 +2,17 @@ import numpy as np
 import tensorflow as tf
 
 
+def softmax(x):
+    """Compute softmax values for each sets of scores in x."""
+    e_x = np.exp(x - np.max(x))
+    return e_x / e_x.sum()
+
 class RandomMemory:
     def __init__(self, capacity, input_result, output_dimension):
         self.capacity = capacity
         self.states = np.zeros((capacity, input_result))
         self.values = np.zeros((capacity, output_dimension))
-        self.sample_weights = np.ones((capacity))
+        self.sample_weights = np.zeros((capacity))
         # Pointer
         self.pointer = 0
 
@@ -15,11 +20,11 @@ class RandomMemory:
         # We seek and return n random memory locations
         idx = np.random.choice(
             np.arange(len(self.states)), n_samples,
-            p=self.sample_weights / np.sum(self.sample_weights),
+            p=softmax(self.sample_weights),
             replace=False)
         embs = self.states[idx]
         values = self.values[idx]
-        self.sample_weights[idx] = 1
+        self.sample_weights[idx] = 0
         mask = np.ones(len(self.states), np.bool)
         mask[idx] = 0
         self.sample_weights[mask] += 1        
@@ -59,11 +64,12 @@ class RandomMemory:
                     else:
                         self.states[insert_idx] = keys[i]
                         self.values[insert_idx] = values[i]
-                        self.sample_weights[insert_idx] = 1
+                        self.sample_weights[insert_idx] = 0
                         break
             else:
                 self.states[self.pointer] = keys[i]
                 self.values[self.pointer] = values[i]
+                self.sample_weights[self.pointer] = 0
                 self.pointer += 1
 
     # def add_random(self, keys, values):
@@ -126,6 +132,16 @@ class RMA(object):
         acc = self.session.run(self.accuracy,
                                feed_dict={self.x: xs_test, self.y_: ys_test, self.memory_sample_batch: 0})
         return acc
+
+    def update_sample_weights(self):
+        preds = self.session.run(
+            self.y, feed_dict={self.x: self.M.states, self.memory_sample_batch: 0})
+        pred_labels = np.argmax(preds, axis=1)
+        gold_labels = np.argmax(self.M.values, axis=1)
+        right_mask = pred_labels == gold_labels
+        wrong_mask = pred_labels != gold_labels
+        self.M.sample_weights[right_mask] += 3
+        self.M.sample_weights[wrong_mask] -= 3
 
     @staticmethod
     def network(x):

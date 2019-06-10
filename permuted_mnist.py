@@ -78,6 +78,7 @@ def training(model, mnist, task_permutation, use_memory=True):
                 # We just store a batch sample each args.memory_each steps
                 if i % args.memory_each == 0:
                     model.add_to_memory(batch[0], batch[1])
+                model.update_sample_weights()
             else:
                 model.train(batch[0], batch[1], 0)
 
