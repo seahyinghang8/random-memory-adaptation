@@ -56,6 +56,8 @@ class RMA(object):
 
         # Network
         self.y = self.network(self.x, self.w, self.b)
+        
+        self.saver = tf.train.Saver()
 
         # Memory M
         self.M = RandomMemory(args.memory_size, self.x.get_shape()[-1], self.y.get_shape()[-1])
@@ -63,11 +65,12 @@ class RMA(object):
         # Loss function
         self.cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=self.y_, logits=self.y))
         self.optim = tf.train.GradientDescentOptimizer(self.learning_rate).minimize(self.cross_entropy)
-        w_update, b_update = tf.gradients(
-            tf.nn.softmax_cross_entropy_with_logits(labels=self.memory_y_, logits=self.network(self.memory_x_, self.w, self.b)),
-            [self.w, self.b]
-        )
-        test_preds = self.network(self.x, self.w - 0.01*w_update, self.b - 0.01*b_update)
+#        w_update, b_update = tf.gradients(
+#            tf.nn.softmax_cross_entropy_with_logits(labels=self.memory_y_, logits=self.network(self.memory_x_, self.w, self.b)),
+#            [self.w, self.b]
+#        )
+#        test_preds = self.network(self.x, self.w - 0.01*w_update, self.b - 0.01*b_update)
+        test_preds = self.network(self.x, self.w, self.b)
         self.correct_prediction = tf.equal(tf.argmax(test_preds, 1), tf.argmax(self.y_, 1))
         self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
 
@@ -89,7 +92,7 @@ class RMA(object):
     def test(self, xs_test, ys_test):
         # assume all xs are from the same task
         accs = []
-        ids = np.random.choice(xs_test.shape[0], size=10, replace=False)
+        ids = np.random.choice(xs_test.shape[0], size=100, replace=False)
         memx = []
         memy = []
         for idx in ids:
@@ -98,6 +101,10 @@ class RMA(object):
             memy.append(y)
         memx = np.concatenate(memx)
         memy = np.concatenate(memy)
+        
+        self.saver.save(self.session, "./model.ckpt")
+        self.session.run(self.optim, feed_dict={self.x: memx, self.y_: memy})
+
         acc = self.session.run(
                 self.accuracy,
                 feed_dict={
@@ -105,6 +112,8 @@ class RMA(object):
                     self.y_: ys_test,
                     self.memory_x_: memx, self.memory_y_: memy,
                 })
+        
+        self.saver.restore(self.session, "./model.ckpt")
         return acc
 
     @staticmethod
