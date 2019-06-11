@@ -74,12 +74,14 @@ def training(model, mnist, task_permutation, use_memory=True):
             batch = (batch[0][:, task_permutation[task]], batch[1])
 
             if use_memory:
-                model.train(batch[0], batch[1], args.batch_size)
+                model.train(batch[0], batch[1], task, args.batch_size)
                 # We just store a batch sample each args.memory_each steps
                 if i % args.memory_each == 0:
-                    model.add_to_memory(batch[0], batch[1])
+                    model.add_to_memory(batch[0], batch[1], task)
             else:
                 model.train(batch[0], batch[1], 0)
+
+        model.consolidate_memory()
 
         # Print test set accuracy to each task encountered so far
         for test_task in range(task + 1):
